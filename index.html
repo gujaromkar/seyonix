@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyonix Groups - SaaS & AI Innovation Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-padding {
+            padding: 5rem 1rem;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #3b82f6;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-300">
+<!-- Loading Screen -->
+<div id="loadingScreen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center">
+        <!-- Much Bigger Logo with pulse animation -->
+        <div class="w-64 h-64 flex items-center justify-center mb-8 animate-pulse">
+            <img src="logo.png" alt="Seyonix Groups Logo" class="w-full h-full object-contain">
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Seyonix Groups</h2>
+        <div class="w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse"></div>
+        </div>
+    </div>
+</div>
+
+    <!-- Header -->
+    <header class="fixed w-full z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+  <div class="flex items-center space-x-2">
+    <!-- Logo image -->
+    <img src="logo.png" class="w-8 sm:w-10 h-8 sm:h-10" alt="Logo" />
+
+    <!-- Logo text -->
+    <span class="text-xl font-bold text-gray-900 dark:text-white">
+      Seyonix<span class="text-blue-600">Groups</span>
+    </span>
+  </div>
+</div>
+
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a>
+                        <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Projects</a>
+                        <a href="#technology" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Technology</a>
+                        <a href="#industries" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Industries</a>
+                        <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Right side buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <!-- Contact Button -->
+                    <a href="#contact" class="hidden md:inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                        Get Started
+                    </a>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 rounded-lg mt-2 shadow-lg">
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">About</a>
+                    <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">Services</a>
+                    <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">Projects</a>
+                    <a href="#technology" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">Technology</a>
+                    <a href="#industries" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">Industries</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium">Contact</a>
+                    <a href="#contact" class="block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-2 rounded-lg font-medium text-center mt-2">Get Started</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium mb-6">
+                        <i class="fas fa-rocket mr-2"></i> SaaS & AI Innovation Company
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                        Intelligent
+                        <span class="gradient-text block">SaaS Solutions</span>
+                        Simplified
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+                        We build cloud-based solutions that empower startups and enterprises to automate workflows, 
+                        enhance performance, and achieve scalable digital growth.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:-translate-y-1 shadow-lg hover:shadow-xl text-center">
+                            Start Your Project
+                        </a>
+                        <a href="#projects" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg font-semibold text-lg hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-200 text-center">
+                            View Our Work
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 mt-12 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-gray-900 dark:text-white">5+</div>
+                            <div class="text-gray-600 dark:text-gray-400">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-gray-900 dark:text-white">100%</div>
+                            <div class="text-gray-600 dark:text-gray-400">Client Success</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-gray-900 dark:text-white">24/7</div>
+                            <div class="text-gray-600 dark:text-gray-400">Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Animated Illustration -->
+                <div class="relative">
+                    <div class="relative z-10 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl">
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- AI Cube -->
+                            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white transform rotate-3 transition-transform duration-300 hover:rotate-0 card-hover">
+                                <div class="text-2xl mb-2"><i class="fas fa-robot"></i></div>
+                                <div class="font-semibold">AI Powered</div>
+                            </div>
+                            
+                            <!-- Cloud Cube -->
+                            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-6 text-white transform -rotate-3 transition-transform duration-300 hover:rotate-0 card-hover">
+                                <div class="text-2xl mb-2"><i class="fas fa-cloud"></i></div>
+                                <div class="font-semibold">Cloud Native</div>
+                            </div>
+                            
+                            <!-- Scale Cube -->
+                            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 text-white transform -rotate-2 transition-transform duration-300 hover:rotate-0 card-hover">
+                                <div class="text-2xl mb-2"><i class="fas fa-chart-line"></i></div>
+                                <div class="font-semibold">Scalable</div>
+                            </div>
+                            
+                            <!-- Secure Cube -->
+                            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-6 text-white transform rotate-2 transition-transform duration-300 hover:rotate-0 card-hover">
+                                <div class="text-2xl mb-2"><i class="fas fa-shield-alt"></i></div>
+                                <div class="font-semibold">Secure</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating elements -->
+                        <div class="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce"></div>
+                        <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-red-400 rounded-full animate-pulse"></div>
+                    </div>
+                    
+                    <!-- Background decoration -->
+                    <div class="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl opacity-20 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">About Seyonix Groups</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        Seyonix Groups is a SaaS-driven and AI innovation company founded in November 2024 and headquartered in Pune, India. We focus on building cloud-based solutions that empower startups and enterprises to automate workflows, enhance performance, and achieve scalable digital growth.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        Seyonix stands out for its strong combination of technical depth, user-centric design, and AI-powered intelligence — all under one roof.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 dark:text-blue-400 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Long-term Partnerships</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">We focus on building lasting relationships with our clients.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 dark:text-blue-400 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">End-to-End Ownership</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">From idea to deployment and maintenance.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 dark:text-blue-400 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">AI-First Approach</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Software that evolves through data intelligence.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 dark:text-blue-400 text-xs"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Innovation with Simplicity</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Complex SaaS products that remain user-friendly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-quote-left text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 italic">"Confidence has no competition."</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">- Seyonix Groups Slogan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 card-hover">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">2024</div>
+                                <div class="text-gray-600 dark:text-gray-400">Founded</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">Pune</div>
+                                <div class="text-gray-600 dark:text-gray-400">Headquarters</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">SaaS & AI</div>
+                                <div class="text-gray-600 dark:text-gray-400">Focus Area</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">100%</div>
+                                <div class="text-gray-600 dark:text-gray-400">Client Focused</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-6 -right-6 w-12 h-12 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-400 rounded-full opacity-20 animate-pulse-slow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    What We Do
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Complete SaaS lifecycle services combining technology, strategy, and design into one powerful development framework.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-600">
+                    <div class="text-4xl mb-4 text-blue-500">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        Custom SaaS Development
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Tailored cloud-based products for startups and enterprises using modern web frameworks.
+                    </p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                            React/Node.js
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                            Responsive Design
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                            Cross-platform
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-600">
+                    <div class="text-4xl mb-4 text-purple-500">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        AI Integration & Automation
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Embedding AI models to automate tasks, analytics, and enhance productivity.
+                    </p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            NLP
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            Recommendation Systems
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            Voice AI
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-600">
+                    <div class="text-4xl mb-4 text-green-500">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        Multi-Tenant Architecture
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Single infrastructure serving multiple clients securely with reduced operational costs.
+                    </p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Secure Isolation
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Cost Effective
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            High Performance
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-600">
+                    <div class="text-4xl mb-4 text-yellow-500">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        Subscription & Billing
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        End-to-end subscription management with automatic invoicing and plan upgrades.
+                    </p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-yellow-500 mr-3"></i>
+                            Razorpay/Stripe
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-yellow-500 mr-3"></i>
+                            Auto-billing
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-yellow-500 mr-3"></i>
+                            Plan Management
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-600">
+                    <div class="text-4xl mb-4 text-red-500">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        Real-Time Analytics
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Interactive dashboards for live metrics and business intelligence.
+                    </p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-red-500 mr-3"></i>
+                            Live Data
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-red-500 mr-3"></i>
+                            Visualization
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-red-500 mr-3"></i>
+                            API Integration
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-600">
+                    <div class="text-4xl mb-4 text-indigo-500">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        Security & User Management
+                    </h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Role-based authentication, encryption, and secure login systems.
+                    </p>
+                    
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-indigo-500 mr-3"></i>
+                            RBAC
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-indigo-500 mr-3"></i>
+                            Encryption
+                        </li>
+                        <li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-check-circle text-indigo-500 mr-3"></i>
+                            Secure Auth
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-8 max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                        Ready to Transform Your Business?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Let's discuss how our SaaS solutions can drive your digital transformation.
+                    </p>
+                    <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg">
+                        Start Conversation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section-padding bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Why Clients Choose Us
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Seyonix Groups focuses on value-based innovation — meaning we not only build solutions but ensure every solution generates measurable business growth.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Advantage 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tasks text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">End-to-End Ownership</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Clients don't need separate vendors. We handle concept, design, coding, testing, deployment, and scaling.
+                    </p>
+                </div>
+                
+                <!-- Advantage 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cloud text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Scalable Cloud Infrastructure</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Deployments on AWS, Google Cloud, and Vercel support millions of users with minimal downtime.
+                    </p>
+                </div>
+                
+                <!-- Advantage 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-friends text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">User-Focused Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        UI/UX design with clarity, minimalism, and intuitiveness optimized for real-world workflows.
+                    </p>
+                </div>
+                
+                <!-- Advantage 4 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Affordable Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Transparent pricing helps startups launch MVPs quickly and affordably without compromising quality.
+                    </p>
+                </div>
+                
+                <!-- Advantage 5 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">AI-First Approach</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Every project integrates AI where it matters — automation, personalization, and analytics.
+                    </p>
+                </div>
+                
+                <!-- Advantage 6 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Rapid Deployment</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Agile development processes ensure faster time-to-market for your SaaS solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Featured Projects
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Discover how we're transforming industries with cutting-edge SaaS and AI solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">EternaLegacy AI</h3>
+                           
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A cloud-based SaaS platform that uses AI, Machine Learning, and Voice Cloning to create digital legacy profiles.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Tech Stack:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">React Native</span>
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">Flask</span>
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">TensorFlow</span>
+                            </div>
+                        </div>
+                        <a href="eternal legacy/landing.html" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - ArtZone -->
+<div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden card-hover">
+    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+        <i class="fas fa-palette text-white text-6xl"></i>
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white">ArtZone</h3>
+            
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A comprehensive e-commerce platform for art supplies with artist galleries, tutorials, and commission services.
+        </p>
+        <div class="mb-4">
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Tech Stack:</h4>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">HTML/CSS/JS</span>
+                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">PHP</span>
+                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">MySQL</span>
+                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">Stripe API</span>
+            </div>
+        </div>
+        <a href="demoart web/index.html" class="inline-flex items-center text-purple-600 dark:text-purple-400 font-medium">
+            View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</div>
+                
+               <!-- Project 3 - AI Agent -->
+<div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden card-hover">
+    <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+        <i class="fas fa-robot text-white text-6xl"></i>
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white">AI Agent</h3>
+            
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            An intelligent AI-powered social media marketing assistant that automates content creation, scheduling, and analytics.
+        </p>
+        <div class="mb-4">
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Tech Stack:</h4>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">Python</span>
+                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">OpenAI API</span>
+                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">React</span>
+                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">Node.js</span>
+            </div>
+        </div>
+        <a href="Ai-Powered-Social-Media-Manager-main/index.html" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium">
+            Learn More <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="section-padding bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Technology Stack
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    We leverage cutting-edge technologies to build robust, scalable, and future-proof solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Tech 1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center tech-icon card-hover">
+                    <i class="fab fa-react text-blue-500 text-4xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">React</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Frontend</p>
+                </div>
+                
+                <!-- Tech 2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center tech-icon card-hover">
+                    <i class="fab fa-node-js text-green-500 text-4xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">Node.js</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Backend</p>
+                </div>
+                
+                <!-- Tech 3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center tech-icon card-hover">
+                    <i class="fab fa-python text-yellow-500 text-4xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">Python</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">AI/ML</p>
+                </div>
+                
+                <!-- Tech 4 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center tech-icon card-hover">
+                    <i class="fas fa-database text-purple-500 text-4xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">MongoDB</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Database</p>
+                </div>
+                
+                <!-- Tech 5 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center tech-icon card-hover">
+                    <i class="fab fa-aws text-orange-500 text-4xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">AWS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Cloud</p>
+                </div>
+                
+                <!-- Tech 6 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center tech-icon card-hover">
+                    <i class="fas fa-brain text-red-500 text-4xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 dark:text-white">TensorFlow</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">AI/ML</p>
+                </div>
+            </div>
+
+            <!-- Additional Technologies -->
+            <div class="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-6">Our Full Stack Capabilities</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Frontend</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">React, React Native, Tailwind CSS</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Backend</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Flask, Node.js, Express.js</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Database</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">MongoDB, Firebase, PostgreSQL</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">AI/ML</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">TensorFlow, Hugging Face, OpenAI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="section-padding bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Industries We Serve
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Seyonix Groups provides SaaS and AI solutions across multiple sectors, customizing technology for real-world impact.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Industry 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-rocket text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">SaaS Startups</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        End-to-end MVP and SaaS launch support with scalable architecture and investor-ready products.
+                    </p>
+                </div>
+                
+                <!-- Industry 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-robot text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">AI & Automation</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Intelligent workflow automation tools that reduce manual effort and maximize efficiency.
+                    </p>
+                </div>
+                
+                <!-- Industry 3 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-heartbeat text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">HealthTech</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Patient tracking, fitness monitoring, and AI diagnostics for modern healthcare solutions.
+                    </p>
+                </div>
+                
+                <!-- Industry 4 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-tractor text-yellow-600 dark:text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">AgriTech</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Smart farming and data-driven agriculture solutions for the modern farming ecosystem.
+                    </p>
+                </div>
+                
+                <!-- Industry 5 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">EdTech</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        eLearning platforms, AI mentors, and analytics dashboards for educational institutions.
+                    </p>
+                </div>
+                
+                <!-- Industry 6 -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-building text-indigo-600 dark:text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Enterprise Solutions</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Scalable internal systems for workflow management and business process optimization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="section-padding bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Vision -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-8">
+                    <div class="text-4xl text-blue-500 mb-4">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Vision</h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        To empower businesses through intelligent, scalable SaaS solutions that redefine digital efficiency.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        This means Seyonix wants to transform how companies use cloud and AI — making digital operations more intelligent, automated, and accessible worldwide.
+                    </p>
+                </div>
+                
+                <!-- Mission -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-8">
+                    <div class="text-4xl text-purple-500 mb-4">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Mission</h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        To make SaaS simple, smart, and accessible for every business, blending cloud scalability with AI precision.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Seyonix aims to reduce complexity and time-to-market while maintaining AI-driven performance — bringing world-class digital infrastructure to every level of business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Let's Build Something Amazing</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                        Ready to transform your idea into a powerful SaaS solution? Let's discuss your project.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Email Us</h3>
+                                <a href="mailto:seyonixdevelopers.pvt@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                    seyonixdevelopers.pvt@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Location</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Pune, Maharashtra, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Response Time</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Partnership Benefits -->
+                    <div class="mt-12 bg-white dark:bg-gray-700 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Partnership Benefits</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                                Strategic consulting before development
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                                MVP design for investors and validation
+                            </li>
+                            <li class="flex items-center text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                                Long-term support with DevOps & security
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white transition-colors duration-200" placeholder="Your full name">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white transition-colors duration-200" placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Company</label>
+                                <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white transition-colors duration-200" placeholder="Your company name">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="projectType" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Project Type</label>
+                            <select id="projectType" name="projectType" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white transition-colors duration-200">
+                                <option value="">Select project type</option>
+                                <option value="saas">SaaS Development</option>
+                                <option value="ai">AI Integration</option>
+                                <option value="mobile">Mobile App</option>
+                                <option value="web">Web Application</option>
+                                <option value="consulting">Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Project Details *</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white transition-colors duration-200" placeholder="Tell us about your project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <img src="logo.png" alt="Seyonix Groups Logo" class="w-10 h-10 object-contain mr-3">
+                    <span class="text-xl font-bold">
+                        Seyonix<span class="text-blue-400">Groups</span>
+                    </span>
+                </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        A SaaS-driven and AI innovation company building cloud-based solutions that empower startups and enterprises to automate workflows, enhance performance, and achieve scalable digital growth.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-200">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors duration-200">Projects</a></li>
+                        <li><a href="#technology" class="text-gray-400 hover:text-white transition-colors duration-200">Technology</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <a href="mailto:seyonixdevelopers.pvt@gmail.com" class="hover:text-white transition-colors duration-200">seyonixdevelopers.pvt@gmail.com</a>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Pune, Maharashtra, India
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Seyonix Groups. All rights reserved. | "Confidence has no competition."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }, 1500);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Theme toggle
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            const html = document.documentElement;
+            const icon = this.querySelector('i');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('themeToggle').querySelector('i').classList.remove('fa-moon');
+            document.getElementById('themeToggle').querySelector('i').classList.add('fa-sun');
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real application, you would send the form data to a server here
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Scroll effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

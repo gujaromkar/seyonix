@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .product-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .product-hero h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .product-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .feature-desc {
+            color: #6c757d;
+            line-height: 1.5;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            color: #2c3e50;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .specs-table th,
+        .specs-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .specs-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        .availability-section {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .pricing {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 700px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Product Details</h1>
+        
+        <!-- Product Hero Section -->
+        <div class="product-hero">
+            <h2>🚀 New Product Launch</h2>
+            <p>Check out our latest product with special discounts</p>
+        </div>
+        
+        <!-- Key Features -->
+        <div class="section-title">✨ Key Features</div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-title">Innovative Design</div>
+                <div class="feature-desc">
+                    Sleek, modern aesthetics that complement any workspace with premium materials and attention to detail.
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">High Performance</div>
+                <div class="feature-desc">
+                    Advanced technology delivers superior results with enhanced efficiency and reliability for professional use.
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">Eco-Friendly Materials</div>
+                <div class="feature-desc">
+                    Sustainably sourced components with minimal environmental impact, supporting your green initiatives.
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">User-Friendly Interface</div>
+                <div class="feature-desc">
+                    Intuitive controls and setup process make it accessible for users of all skill levels.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Specifications -->
+        <div class="section-title">⚙️ Technical Specifications</div>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dimensions</td>
+                    <td>12" x 8" x 3"</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>2.5 lbs</td>
+                </tr>
+                <tr>
+                    <td>Materials</td>
+                    <td>Premium aluminum, recycled plastics</td>
+                </tr>
+                <tr>
+                    <td>Compatibility</td>
+                    <td>Windows, macOS, Linux</td>
+                </tr>
+                <tr>
+                    <td>Power</td>
+                    <td>USB-C powered, low energy consumption</td>
+                </tr>
+                <tr>
+                    <td>Warranty</td>
+                    <td>2 years full coverage</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Pricing Information -->
+        <div class="pricing">
+            <div class="section-title">💰 Special Launch Pricing</div>
+            <p><strong>Early Bird Price:</strong> $199 (Regular: $249)</p>
+            <p><strong>Discount:</strong> 20% off for the first 100 customers</p>
+            <p><strong>Bundle Deal:</strong> Buy 2, get 1 free accessory pack</p>
+        </div>
+        
+        <!-- Availability -->
+        <div class="availability-section">
+            <div class="section-title">🌍 Availability</div>
+            <p><strong>Current Status:</strong> Pre-order available now</p>
+            <p><strong>Shipping:</strong> Expected delivery in 3-4 weeks</p>
+            <p><strong>Regions:</strong> North America, Europe (coming soon)</p>
+            <p><em>Note: European availability is being finalized based on customer feedback</em></p>
+            
+            <a href="#" class="btn">Pre-Order Now</a>
+            <a href="#" class="btn" style="background: #28a745;">Notify Me for Europe</a>
+        </div>
+        
+        <!-- Product Creation Process -->
+        <div class="section-title">🎬 How We Create Our Products</div>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+            <p>Our product development process combines innovative design thinking with rigorous testing:</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Research and customer feedback analysis</li>
+                <li>Prototype development and testing</li>
+                <li>Quality assurance and performance optimization</li>
+                <li>Sustainable material sourcing</li>
+                <li>Final testing and certification</li>
+            </ul>
+            <p><em>Take a look at how we create our products in our behind-the-scenes content.</em></p>
+        </div>
+    </div>
+</body>
+</html>

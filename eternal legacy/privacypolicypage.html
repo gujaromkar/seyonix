@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EternaLegacy AI – Privacy Policy Agreement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --rose-pink: #E6BFC0;
+      --rose-pink-dark: #d69698;
+      --light-gray: #F5F5F5;
+      --text-dark: #222222;
+      --radius: 16px;
+      --shadow: 0 6px 20px #e6bfc055;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #fff;
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    a {
+      color: var(--rose-pink);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px #eee;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .logo {
+      height: 40px;
+    }
+    .navbar-center {
+      display: flex;
+      gap: 2.5em;
+    }
+    .navbar-center a {
+      color: var(--text-dark);
+      font-weight: 600;
+      padding-bottom: 3px;
+      border-bottom: 2.5px solid transparent;
+      transition: border-bottom 0.25s;
+    }
+    .navbar-center a.active,
+    .navbar-center a:hover {
+      border-bottom: 2.5px solid var(--rose-pink);
+    }
+    /* Footer */
+    footer {
+      background: var(--light-gray);
+      text-align: center;
+      padding: 1.4rem 1rem 1.8rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 3rem;
+    }
+    footer a {
+      margin: 0 1.1rem;
+      color: var(--rose-pink);
+      font-weight: 600;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* Main container */
+    main {
+      max-width: 850px;
+      margin: 3rem auto 5rem auto;
+      padding: 0 1.5rem;
+    }
+    /* Container box with shadow */
+    .policy-box {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.8rem 3rem 3.2rem 3rem;
+      border: 1.5px solid var(--light-gray);
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+    /* Header title */
+    header.page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header.page-header h1 {
+      font-size: 2.9rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      color: var(--text-dark);
+    }
+    header.page-header p {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--rose-pink);
+    }
+    /* Section headings */
+    section h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      border-bottom: 3px solid var(--rose-pink);
+      display: inline-block;
+      padding-bottom: 5px;
+      color: var(--text-dark);
+      margin-top: 1.9rem;
+    }
+    /* Emojis beside headings */
+    section h2::before {
+      content: attr(data-emoji);
+      margin-right: 0.52em;
+    }
+    /* Section paragraphs and lists */
+    section {
+      margin-bottom: 1.8rem;
+    }
+    section p {
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.25rem;
+      margin-top: 0.6rem;
+    }
+    li {
+      margin-bottom: 0.55rem;
+    }
+    /* Consent Box */
+    .consent-container {
+      margin-top: 2.2rem;
+      border-top: 1px solid var(--light-gray);
+      padding-top: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .consent-container input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--rose-pink);
+      border-radius: 6px;
+      cursor: pointer;
+      accent-color: var(--rose-pink);
+    }
+    .consent-label {
+      font-size: 1rem;
+      user-select: none;
+      cursor: pointer;
+    }
+    .consent-label a {
+      font-weight: 600;
+      color: var(--rose-pink);
+    }
+    .btn-continue {
+      margin-top: 2.3rem;
+      background: var(--rose-pink);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 1.1em 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: not-allowed;
+      width: 100%;
+      box-shadow: 0 2px 16px #e6bfc055;
+      opacity: 0.6;
+      transition: background 0.25s, opacity 0.25s, cursor 0.25s;
+    }
+    .btn-continue.enabled {
+      opacity: 1;
+      cursor: pointer;
+    }
+    .btn-continue.enabled:hover,
+    .btn-continue.enabled:focus {
+      background: var(--rose-pink-dark);
+      outline: none;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 0 1rem;
+      }
+      .policy-box {
+        padding: 2rem 1.5rem 2.8rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div>
+      <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-ai-technology-flaticons-flat-flat-icons-6.png" alt="EternaLegacy AI Logo" class="logo" />
+    </div>
+    <div class="navbar-center">
+      <a href="/" aria-current="false">Home</a>
+      <a href="#about" aria-current="false">About</a>
+      <a href="#privacy" class="active" aria-current="page">Privacy</a>
+    </div>
+    <div></div>
+  </nav>
+
+  <main>
+    <div class="policy-box" role="region" aria-labelledby="policy-title">
+      <header class="page-header">
+        <h1 id="policy-title">Privacy Policy</h1>
+        <p>Effective Date: 2025</p>
+      </header>
+
+      <section aria-labelledby="data-protection">
+        <h2 id="data-protection" data-emoji="🔐">Data Protection</h2>
+        <p>We value your privacy and ensure that all personal data (text, photos, voice uploads) is encrypted and stored securely.</p>
+        <p>Data is stored on local Indian servers in compliance with the DPDP Act 2023.</p>
+        <p>Only you have control over your data; no third-party access is permitted without explicit consent.</p>
+      </section>
+
+      <section aria-labelledby="consent">
+        <h2 id="consent" data-emoji="✅">Consent</h2>
+        <p>By using EternaLegacy AI, you consent to the collection and usage of text, photos, and voice samples for creating digital avatars.</p>
+        <p>Users may withdraw consent at any time by deleting their account.</p>
+        <p>We use transparent forms and GDPR-compliant templates for user agreements.</p>
+      </section>
+
+      <section aria-labelledby="ai-ethics">
+        <h2 id="ai-ethics" data-emoji="🤖">AI Ethics</h2>
+        <p>Avatars and voices generated by EternaLegacy AI are simulations, not consciousness transfers.</p>
+        <p>We avoid commercialization of sacred rituals and consult cultural/religious leaders for guidance.</p>
+        <p>We do not allow misuse of avatars for harmful or unethical purposes.</p>
+      </section>
+
+      <section aria-labelledby="user-rights">
+        <h2 id="user-rights" data-emoji="👤">Your Rights</h2>
+        <p>You can request access, modification, or deletion of your data at any time.</p>
+        <p>Users can export memories/avatars created before account deletion.</p>
+        <p>Support is available via the Contact Us form or email.</p>
+      </section>
+
+      <form id="privacy-form" novalidate>
+        <div class="consent-container">
+          <input type="checkbox" id="agree-checkbox" aria-required="true" />
+          <label for="agree-checkbox" class="consent-label">
+            I have read and agree to the <a href="#policy-title" tabindex="0">Privacy Policy</a>.
+          </label>
+        </div>
+        <button type="submit" class="btn-continue" id="submit-btn" disabled>Continue</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <a href="/">Home</a> |
+    <a href="#about">About</a> |
+    <a href="#contact">Contact</a>
+    <p style="margin-top: 0.5em; max-width: 540px; margin-left: auto; margin-right: auto;">
+      Avatars are AI-generated simulations and are not intended to replicate real consciousness. EternaLegacy AI complies with DPDP Act 2023.
+    </p>
+  </footer>
+
+<script>
+  const checkbox = document.getElementById('agree-checkbox');
+  const submitBtn = document.getElementById('submit-btn');
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      submitBtn.disabled = false;
+      submitBtn.classList.add('enabled');
+      submitBtn.setAttribute('aria-disabled', 'false');
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.remove('enabled');
+      submitBtn.setAttribute('aria-disabled', 'true');
+    }
+  });
+
+  document.getElementById('privacy-form').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!checkbox.checked) {
+      alert('Please agree to the Privacy Policy to continue.');
+      return;
+    }
+    // Process acceptance here: example redirect or other logic
+    alert('Thank you for agreeing to the Privacy Policy.');
+    // Redirect or next step here
+  });
+</script>
+
+</body>
+</html>

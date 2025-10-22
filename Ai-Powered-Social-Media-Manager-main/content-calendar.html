@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calendar-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn.primary {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .view-toggle {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .view-toggle button {
+            padding: 8px 16px;
+            border: none;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .view-toggle button.active {
+            background: #007bff;
+            color: white;
+        }
+        
+        .calendar-container {
+            padding: 20px;
+        }
+        
+        .calendar-grid {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .calendar-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .calendar-header div {
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+            color: #6c757d;
+        }
+        
+        .calendar-body {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e9ecef;
+        }
+        
+        .calendar-day {
+            background: white;
+            min-height: 120px;
+            padding: 8px;
+            position: relative;
+        }
+        
+        .day-number {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .scheduled-post {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 4px;
+            padding: 4px 6px;
+            margin-bottom: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .scheduled-post.facebook { background: #e8f4fd; border-color: #1877f2; }
+        .scheduled-post.instagram { background: #fce4ec; border-color: #e91e63; }
+        .scheduled-post.twitter { background: #e3f2fd; border-color: #1da1f2; }
+        .scheduled-post.linkedin { background: #e8f4fd; border-color: #0077b5; }
+        
+        .post-status {
+            font-size: 10px;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: white;
+            float: right;
+        }
+        
+        .status-scheduled { background: #ffc107; }
+        .status-published { background: #28a745; }
+        .status-draft { background: #6c757d; }
+        
+        .sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            padding: 20px;
+            z-index: 1000;
+        }
+        
+        .sidebar.open {
+            right: 0;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .platform-filter {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .platform-tag {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .platform-tag.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .upcoming-posts {
+            margin-top: 30px;
+        }
+        
+        .post-item {
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: white;
+        }
+        
+        .post-time {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        
+        .post-content {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .post-platforms {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .platform-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .facebook { background: #1877f2; }
+        .instagram { background: #e91e63; }
+        .twitter { background: #1da1f2; }
+        .linkedin { background: #0077b5; }
+        
+        @media (max-width: 768px) {
+            .calendar-controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Content Calendar</h1>
+        <div class="calendar-controls">
+            <div class="view-toggle">
+                <button class="active">Month</button>
+                <button>Week</button>
+                <button>List</button>
+            </div>
+            <button class="btn">← Aug 2025 →</button>
+            <button class="btn primary" onclick="openPostCreator()">+ New Post</button>
+        </div>
+    </header>
+
+    <div class="quick-stats">
+        <div class="stat-card">
+            <span class="stat-number">24</span>
+            <div class="stat-label">Posts This Month</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">8</span>
+            <div class="stat-label">Scheduled</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">16</span>
+            <div class="stat-label">Published</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">4</span>
+            <div class="stat-label">Platforms</div>
+        </div>
+    </div>
+
+    <div class="platform-filter">
+        <div class="platform-tag active">All Platforms</div>
+        <div class="platform-tag">Facebook</div>
+        <div class="platform-tag">Instagram</div>
+        <div class="platform-tag">Twitter</div>
+        <div class="platform-tag">LinkedIn</div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-grid">
+            <div class="calendar-header">
+                <div>Sunday</div>
+                <div>Monday</div>
+                <div>Tuesday</div>
+                <div>Wednesday</div>
+                <div>Thursday</div>
+                <div>Friday</div>
+                <div>Saturday</div>
+            </div>
+            
+            <div class="calendar-body">
+                <!-- Week 1 -->
+                <div class="calendar-day">
+                    <div class="day-number">1</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">3</div>
+                    <div class="scheduled-post facebook">
+                        Product Launch Teaser
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">4</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">5</div>
+                    <div class="scheduled-post instagram">
+                        Behind the Scenes
+                        <span class="post-status status-published">Published</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">6</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">7</div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="calendar-day">
+                    <div class="day-number">8</div>
+                    <div class="scheduled-post twitter">
+                        Quick Tip Monday
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">9</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">10</div>
+                    <div class="scheduled-post linkedin">
+                        Industry Insights
+                        <span class="post-status status-draft">Draft</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">11</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">12</div>
+                    <div class="scheduled-post facebook">
+                        Customer Feature
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                    <div class="scheduled-post instagram">
+                        Product Demo
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">13</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">14</div>
+                </div>
+                
+                <!-- Week 3 -->
+                <div class="calendar-day">
+                    <div class="day-number">15</div>
+                    <div class="scheduled-post twitter">
+                        Weekly Roundup
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">16</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">17</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">18</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">19</div>
+                    <div class="scheduled-post facebook">
+                        Special Discount
+                        <span class="post-status status-published">Published</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">20</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">21</div>
+                </div>
+                
+                <!-- Week 4 -->
+                <div class="calendar-day">
+                    <div class="day-number">22</div>
+                    <div class="scheduled-post instagram">
+                        User Generated Content
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">23</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">24</div>
+                    <div class="scheduled-post twitter">
+                        How-to Guide
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">25</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">26</div>
+                    <div class="scheduled-post linkedin">
+                        Company Update
+                        <span class="post-status status-draft">Draft</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">27</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">28</div>
+                </div>
+                
+                <!-- Week 5 -->
+                <div class="calendar-day">
+                    <div class="day-number">29</div>
+                    <div class="scheduled-post facebook">
+                        Month Wrap-up
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">30</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">31</div>
+                </div>
+                <div class="calendar-day"></div>
+                <div class="calendar-day"></div>
+                <div class="calendar-day"></div>
+                <div class="calendar-day"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="upcoming-posts">
+        <h3>Upcoming This Week</h3>
+        
+        <div class="post-item">
+            <div class="post-time">Today, 3:00 PM</div>
+            <div class="post-content">"Check out our latest product with special discounts"</div>
+            <div class="post-platforms">
+                <div class="platform-icon facebook">F</div>
+                <div class="platform-icon instagram">I</div>
+            </div>
+        </div>
+        
+        <div class="post-item">
+            <div class="post-time">Tomorrow, 10:00 AM</div>
+            <div class="post-content">"Take a look at how we create our products"</div>
+            <div class="post-platforms">
+                <div class="platform-icon instagram">I</div>
+                <div class="platform-icon twitter">T</div>
+            </div>
+        </div>
+        
+        <div class="post-item">
+            <div class="post-time">Friday, 2:00 PM</div>
+            <div class="post-content">"Improve your workflow with this simple trick"</div>
+            <div class="post-platforms">
+                <div class="platform-icon linkedin">L</div>
+                <div class="platform-icon twitter">T</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar" id="postSidebar">
+        <h3>Create New Post</h3>
+        <form>
+            <div style="margin: 15px 0;">
+                <label>Post Content</label>
+                <textarea style="width: 100%; height: 120px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; resize: vertical;" placeholder="What would you like to share?"></textarea>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <label>Select Platforms</label>
+                <div style="margin-top: 8px;">
+                    <label><input type="checkbox" checked> Facebook</label><br>
+                    <label><input type="checkbox" checked> Instagram</label><br>
+                    <label><input type="checkbox"> Twitter</label><br>
+                    <label><input type="checkbox"> LinkedIn</label>
+                </div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <label>Schedule Date & Time</label>
+                <input type="datetime-local" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 5px;">
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <label>Tags</label>
+                <input type="text" placeholder="Add hashtags..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 5px;">
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <button type="submit" class="btn primary" style="margin-right: 10px;">Schedule Post</button>
+                <button type="button" class="btn" onclick="closeSidebar()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function openPostCreator() {
+            document.getElementById('postSidebar').classList.add('open');
+        }
+        
+        function closeSidebar() {
+            document.getElementById('postSidebar').classList.remove('open');
+        }
+        
+        // Platform filter functionality
+        document.querySelectorAll('.platform-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.platform-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // View toggle functionality
+        document.querySelectorAll('.view-toggle button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.view-toggle button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

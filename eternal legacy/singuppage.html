@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EternaLegacy AI – Login / Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --rose-pink: #E6BFC0;
+      --rose-pink-dark: #d69698;
+      --light-gray: #F5F5F5;
+      --text-dark: #222222;
+      --radius: 18px;
+      --shadow: 0 8px 40px 0 #e6bfc066;
+      --transition: all 0.3s ease;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      color: var(--text-dark);
+      min-height: 100vh;
+      background-image: linear-gradient(135deg, #fff 0%, #f9f2f2 100%);
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .logo { 
+      height: 38px; 
+      width: auto;
+    }
+    .navbar-center { 
+      display: flex; 
+      gap: 2em; 
+    }
+    .navbar-center a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+      position: relative;
+    }
+    .navbar-center a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--rose-pink);
+      transition: width 0.3s ease;
+    }
+    .navbar-center a:hover::after {
+      width: 100%;
+    }
+    .navbar-center a.active,
+    .navbar-center a:hover {
+      color: var(--rose-pink);
+    }
+    .navbar-right {
+      background: var(--rose-pink); 
+      color: #fff;
+      border-radius: var(--radius);
+      padding: .45em 1.2em;
+      font-weight: 600;
+      min-width: 105px;
+      text-align: center;
+      box-shadow: 0 2px 12px #e6bfc044;
+      border: 2px solid var(--rose-pink);
+    }
+    .auth-container {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2vw;
+      position: relative;
+    }
+    .auth-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .auth-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 500px;
+    }
+    .auth-card {
+      width: 100%;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 2.5rem 2.2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .auth-card:hover {
+      box-shadow: 0 12px 50px 0 #e6bfc099;
+    }
+    .auth-tabs {
+      display: flex;
+      width: 100%;
+      margin-bottom: 1.8em;
+      border-bottom: 1px solid #eee;
+    }
+    .auth-tab {
+      flex: 1;
+      background: none;
+      border: none;
+      font-size: 1.08em;
+      font-weight: 600;
+      padding: .7em .2em;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+    .auth-tab.active {
+      color: var(--rose-pink);
+      border-bottom: 3px solid var(--rose-pink);
+    }
+    .auth-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .input-group {
+      position: relative;
+      margin-bottom: 1.2em;
+    }
+    .input-field {
+      border-radius: var(--radius);
+      background: var(--light-gray);
+      border: 1.5px solid #ececec;
+      font-size: 1rem;
+      padding: 1em 1.05em 1em 2.8em;
+      color: var(--text-dark);
+      transition: var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .input-field:focus {
+      border-color: var(--rose-pink-dark);
+      box-shadow: 0 0 0 2.5px #e6bfc044;
+    }
+    .input-icon {
+      position: absolute;
+      left: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--rose-pink);
+    }
+    .btn-major {
+      background: var(--rose-pink);
+      color: #fff;
+      padding: 1em 0;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.07em;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: .5em;
+      margin-bottom: 1.2em;
+      transition: var(--transition);
+      box-shadow: 0 2px 16px #e6bfc055;
+    }
+    .btn-major:hover, .btn-major:focus {
+      background: var(--rose-pink-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px #e6bfc077;
+    }
+    .forgot-link {
+      color: #b57b7e;
+      text-decoration: none;
+      font-size: .97em;
+      margin-bottom: 1.2em;
+      margin-top: -.8em;
+      width: max-content;
+      align-self: flex-end;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .forgot-link:hover { 
+      color: var(--rose-pink-dark);
+    }
+    .form-msg {
+      margin-bottom: 1.1em;
+      font-size: 1em;
+      color: #c95050;
+      text-align: left;
+      padding: 0.8em;
+      border-radius: var(--radius);
+      background-color: #ffeaea;
+      display: none;
+    }
+    .form-msg.success {
+      color: #36846e;
+      background-color: #e8f7f2;
+    }
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      margin-top: 1.5em;
+    }
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light-gray);
+      color: var(--text-dark);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .social-btn.google:hover {
+      background: #db4437;
+      color: white;
+    }
+    .social-btn.facebook:hover {
+      background: #4267B2;
+      color: white;
+    }
+    .social-btn.apple:hover {
+      background: #000;
+      color: white;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5em 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+    .divider-text {
+      padding: 0 1em;
+      color: #888;
+      font-size: 0.9em;
+    }
+    .password-toggle {
+      position: absolute;
+      right: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #888;
+      cursor: pointer;
+    }
+    @media (max-width:500px) {
+      .auth-card { padding: 1.5em 1.5em 1.7em 1.5em;}
+      .input-field { font-size: 1em;}
+      .btn-major { font-size: 1em;}
+      .auth-tabs { font-size: .94em;}
+      .navbar { padding: 1rem;}
+    }
+    @media (max-width:700px) {
+      .auth-card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div>
+      <img src="https://i.ibb.co/0Q7QZ1Z/eternalegacy-logo.png" alt="EternaLegacy AI Logo" class="logo" />
+    </div>
+    <div class="navbar-center">
+      <a href="/">Home</a>
+      <a href="#about">About</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+    <span class="navbar-right" style="border: 2.5px solid var(--rose-pink); background: #fff;color: var(--rose-pink);">Login&nbsp;/&nbsp;Signup</span>
+  </nav>
+
+  <!-- Authentication Centered Card -->
+  <div class="auth-container">
+    <div class="auth-background"></div>
+    <div class="auth-content">
+      <div class="auth-card" id="auth-card">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="login-tab" type="button">Login</button>
+          <button class="auth-tab" id="signup-tab" type="button">Signup</button>
+        </div>
+        
+        <!-- Login Form -->
+        <form class="auth-form" id="login-form" autocomplete="on" tabindex="0">
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" class="input-field" placeholder="Enter your email" name="loginEmail" id="loginEmail" required>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" class="input-field" placeholder="Enter your password" name="loginPassword" id="loginPassword" required minlength="6">
+            <button type="button" class="password-toggle" id="loginPasswordToggle">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+          
+          <div class="form-msg" id="login-error" style="display:none;"></div>
+          <button class="btn-major" type="submit">Login</button>
+          <a class="forgot-link" href="#" id="forgot-password">Forgot password?</a>
+          
+          <div class="divider">
+            <span class="divider-text">Or continue with</span>
+          </div>
+          
+          <div class="social-login">
+            <button type="button" class="social-btn google">
+              <i class="fab fa-google"></i>
+            </button>
+            <button type="button" class="social-btn facebook">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+            <button type="button" class="social-btn apple">
+              <i class="fab fa-apple"></i>
+            </button>
+          </div>
+        </form>
+        
+        <!-- Signup Form -->
+        <form class="auth-form" id="signup-form" autocomplete="on" style="display:none;" tabindex="0">
+          <div class="input-group">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" class="input-field" placeholder="Enter your full name" name="signupName" id="signupName" required minlength="2">
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" class="input-field" placeholder="Enter your email" name="signupEmail" id="signupEmail" required>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" class="input-field" placeholder="Create a password" name="signupPassword" id="signupPassword" required minlength="6">
+            <button type="button" class="password-toggle" id="signupPasswordToggle">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+          
+          <div class="form-msg" id="signup-msg" style="display:none;"></div>
+          <button class="btn-major" type="submit">Create Account</button>
+          
+          <div class="divider">
+            <span class="divider-text">Or sign up with</span>
+          </div>
+          
+          <div class="social-login">
+            <button type="button" class="social-btn google">
+              <i class="fab fa-google"></i>
+            </button>
+            <button type="button" class="social-btn facebook">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+            <button type="button" class="social-btn apple">
+              <i class="fab fa-apple"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab Switching
+    const loginTab = document.getElementById('login-tab');
+    const signupTab = document.getElementById('signup-tab');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const loginError = document.getElementById('login-error');
+    const signupMsg = document.getElementById('signup-msg');
+    const loginPasswordToggle = document.getElementById('loginPasswordToggle');
+    const signupPasswordToggle = document.getElementById('signupPasswordToggle');
+
+    // Switch between login and signup tabs
+    loginTab.addEventListener('click', () => {
+      loginTab.classList.add('active');
+      signupTab.classList.remove('active');
+      loginForm.style.display = '';
+      signupForm.style.display = 'none';
+      loginError.style.display = 'none';
+      signupMsg.style.display = 'none';
+    });
+    
+    signupTab.addEventListener('click', () => {
+      signupTab.classList.add('active');
+      loginTab.classList.remove('active');
+      signupForm.style.display = '';
+      loginForm.style.display = 'none';
+      loginError.style.display = 'none';
+      signupMsg.style.display = 'none';
+    });
+
+    // Password toggle functionality
+    function togglePasswordVisibility(inputId, toggleButton) {
+      const passwordInput = document.getElementById(inputId);
+      const icon = toggleButton.querySelector('i');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+    
+    loginPasswordToggle.addEventListener('click', () => {
+      togglePasswordVisibility('loginPassword', loginPasswordToggle);
+    });
+    
+    signupPasswordToggle.addEventListener('click', () => {
+      togglePasswordVisibility('signupPassword', signupPasswordToggle);
+    });
+
+    // Login Handler (Demo logic; replace with backend)
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      loginError.style.display = 'none';
+      const email = loginForm.loginEmail.value.trim();
+      const pass = loginForm.loginPassword.value.trim();
+      
+      if (!/.+@.+\..+/.test(email) || pass.length < 6) {
+        loginError.textContent = "Invalid email or password.";
+        loginError.style.display = 'block';
+        return;
+      }
+      
+      // Demo Login: Replace with real authentication
+      if (email === "user@example.com" && pass === "eternal1") {
+        loginError.textContent = "Login successful! Redirecting...";
+        loginError.className = "form-msg success";
+        loginError.style.display = 'block';
+        
+        // In a real app, you would redirect after successful authentication
+        setTimeout(() => {
+          window.location.href = "home.html"; // CHANGE to your home page
+        }, 1500);
+      } else {
+        loginError.textContent = "Invalid email or password.";
+        loginError.style.display = 'block';
+      }
+    });
+
+    // Signup Handler (Demo logic, show success)
+    signupForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      signupMsg.style.display = 'none';
+      const name = signupForm.signupName.value.trim();
+      const email = signupForm.signupEmail.value.trim();
+      const pass = signupForm.signupPassword.value.trim();
+      
+      if (name.length < 2) {
+        signupMsg.textContent = "Name must be at least 2 characters.";
+        signupMsg.className = "form-msg";
+        signupMsg.style.display = 'block';
+        return;
+      }
+      
+      if (!/.+@.+\..+/.test(email)) {
+        signupMsg.textContent = "Please enter a valid email address.";
+        signupMsg.className = "form-msg";
+        signupMsg.style.display = 'block';
+        return;
+      }
+      
+      if (pass.length < 6) {
+        signupMsg.textContent = "Password must be at least 6 characters.";
+        signupMsg.className = "form-msg";
+        signupMsg.style.display = 'block';
+        return;
+      }
+      
+      signupMsg.textContent = "Account created successfully! Please login.";
+      signupMsg.className = "form-msg success";
+      signupMsg.style.display = 'block';
+      
+      setTimeout(() => {
+        loginTab.click();
+        signupForm.reset();
+        signupMsg.style.display = 'none';
+      }, 2000);
+    });
+
+    // Forgot password functionality
+    document.getElementById('forgot-password').addEventListener('click', function(e) {
+      e.preventDefault();
+      const email = prompt("Please enter your email address to reset your password:");
+      if (email && /.+@.+\..+/.test(email)) {
+        alert("Password reset instructions have been sent to " + email);
+      } else if (email) {
+        alert("Please enter a valid email address.");
+      }
+    });
+
+    // Social login buttons
+    document.querySelectorAll('.social-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const platform = this.classList.contains('google') ? 'Google' : 
+                         this.classList.contains('facebook') ? 'Facebook' : 'Apple';
+        alert(`${platform} authentication would be implemented here.`);
+      });
+    });
+
+    // Keyboard nav
+    [loginForm, signupForm].forEach(form =>
+      form.addEventListener('keydown', function(e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          form.querySelector("button[type='submit']").click();
+        }
+      })
+    );
+  </script>
+</body>
+</html>

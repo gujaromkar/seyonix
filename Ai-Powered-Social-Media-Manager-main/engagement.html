@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Social Media Engagement</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .metrics-grid {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .metric-card {
+            flex: 1 1 180px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .metric-label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            color: #2c3e50;
+        }
+        .list {
+            margin-top: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+        .list li {
+            padding: 14px 16px;
+            background: #f6f8fa;
+            margin-bottom: 8px;
+            border-left: 4px solid #28a745;
+            border-radius: 7px;
+        }
+        .comment {
+            padding: 15px;
+            background: #fcf8e3;
+            border-left: 4px solid #f39c12;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        .feedback-list {
+            margin-top: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+        .feedback-list li {
+            background: #f1f8e9;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-left: 2px solid #a5d6a7;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        @media (max-width: 700px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .metrics-grid {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💬 Social Media Engagement</h1>
+        
+        <!-- Key Engagement Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">245</div>
+                <div class="metric-label">Likes on Recent Reel</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">24</div>
+                <div class="metric-label">Post Shares</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">134</div>
+                <div class="metric-label">New Followers (@tech_review)</div>
+            </div>
+        </div>
+        
+        <!-- Top Performing Posts -->
+        <div class="section-title">🔥 Top Engaged Posts</div>
+        <ul class="list">
+            <li>
+                <strong>Product Launch:</strong> Shared 24 times — "Check out our latest product with special discounts"
+            </li>
+            <li>
+                <strong>Reel:</strong> 245 likes — "Improve your workflow with this simple trick"
+            </li>
+            <li>
+                <strong>Behind the Scenes:</strong> "Take a look at how we create our products"
+            </li>
+        </ul>
+        
+        <!-- Recent Feedback / Comments -->
+        <div class="section-title">📢 Recent Feedback</div>
+        <div class="comment">
+            "Loved the new product! When will it be available in Europe?"
+        </div>
+        <ul class="feedback-list">
+            <li>
+                Your post was successfully published.
+            </li>
+            <li>
+                @tech_review gained 134 new followers.
+            </li>
+            <li>
+                Your reel received 245 likes.
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
